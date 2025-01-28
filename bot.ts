@@ -1,8 +1,11 @@
 import { Bot, Context } from 'https://deno.land/x/grammy@v1.8.0/mod.ts'; // Importación de Grammy desde Deno.land
 import axios from 'https://cdn.skypack.dev/axios'; // Importación de Axios desde Skypack
 
-// Configuración del bot
-const bot = new Bot('7163585362:AAEHCcNdIJb4GC6-s4ECPXRDt3XkFr0qAtg'); // Reemplaza 'YOUR_BOT_TOKEN' con el token de tu bot
+// Inicialización del bot
+const bot = new Bot('7163585362:AAEHCcNdIJb4GC6-s4ECPXRDt3XkFr0qAtg'); // Token de tu bot
+
+// Agregar log para ver si el bot está inicializando
+console.log("Bot inicializado correctamente");
 
 // Diccionario con las monedas soportadas
 const MONEDAS = {
@@ -120,14 +123,9 @@ bot.command('noticias', async (ctx: Context) => {
   }
 });
 
-// Comando de inicio
-bot.command('start', (ctx: Context) => {
-  ctx.reply(
-    '¡Hola! Soy un bot de criptomonedas. Usa los siguientes comandos:\n' +
-      '/precio <moneda> - Ver el precio de una moneda\n' +
-      '/grafico <moneda> - Ver un gráfico de los precios de una moneda en los últimos 7 días\n' +
-      '/noticias <moneda> - Ver las últimas noticias de una moneda'
-  );
+// Comando de prueba para verificar la respuesta del bot
+bot.command('ping', (ctx: Context) => {
+  ctx.reply('Pong!');
 });
 
 // Iniciar el bot
